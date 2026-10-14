@@ -1,0 +1,44 @@
+spring.application.name=funeralHome
+
+spring.datasource.url=jdbc:mysql://localhost:3306/funeral_home?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=SUA_SENHA_AQUI
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+spring.profiles.active=dev
+
+spring.output.ansi.enabled=ALWAYS
+
+spring.web.error.include-exception=false
+
+# pelo menos 32 caracteres (HS256)
+jwt.secret=SEU_SEGREDO_AQUI
+jwt.expiration=86400000
+
+# primeiro administrador, criado ao iniciar só se este e-mail ainda não estiver cadastrado
+app.admin.email=admin@funeraria.com
+app.admin.password=TROQUE_ESTA_SENHA
+
+# horas mínimas entre o óbito e o sepultamento: é regra municipal, ajuste para a sua cidade
+# (a cremação é sempre 24h, Lei 6.015/73)
+funeral.burial.min-hours=12
+
+# translados acima disso exigem tanatopraxia (regra municipal, Curitiba usa 250 km); 0 desliga a regra
+funeral.transfer.embalming-required-km=250
+
+# inadimplência dos planos funerários - regras contratuais, ver Lei 13.261/2016 art. 8, V
+plan.default.min-days-overdue=30
+plan.default.notice-deadline-days=10
+# cobrança mensal dos planos (seg min hora dia mês dia-da-semana): todo dia 1º às 06:00
+plan.billing.cron=0 0 6 1 * *
+
+# impresso no contrato e nos documentos
+app.company.name=Funeraria Exemplo
+app.company.payment-place=na sede da funeraria, por PIX ou boleto
+
+# origens do front-end liberadas no CORS (separadas por vírgula)
+app.cors.allowed-origins=http://localhost:3000
+
+server.port=7778
